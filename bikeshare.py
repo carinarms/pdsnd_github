@@ -17,9 +17,9 @@ def get_filters():
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
     print('\nHello! Let\'s explore some US bikeshare data!\n')
-    
+
     # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
-    
+
     while True:
         city = input('You can choose between Chicago, New York City, and Washington. Enter the name below:\n').lower()
         if city in ('chicago', 'new york city', 'washington'):
@@ -28,7 +28,7 @@ def get_filters():
             print('\nCity name not found. Please try again. :)')
 
     # TO DO: get user input for month (all, january, february, ... , june)
-    
+
     while True:
         month = input('Enter any of the year\'s first six months or type "all" to filter by month. (January, February, March, April, May, June, all)\n').lower()
         if month in ('all', 'january', 'february', 'march', 'april', 'may', 'june'):
@@ -37,7 +37,7 @@ def get_filters():
             print('\nMonth not found. Please try again. ')
 
     # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
-    
+
     while True:
         day = input('Enter any day of the week or type: "all" to filter by day. (Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday, all)\n').lower()
         if day in ('all', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'):
@@ -96,9 +96,9 @@ def time_stats(df):
     start_time = time.time()
 
     # TO DO: display the most common month
-    popular_month = calendar.month_name[df['month'].mode()[0]]    
+    popular_month = calendar.month_name[df['month'].mode()[0]]
     print('Most popular month: ', popular_month)
-      
+
     # TO DO: display the most common day of week
     popular_day = df['day_of_week'].mode()[0]
     print('Most popular day of the week: ', popular_day)
@@ -144,7 +144,7 @@ def trip_duration_stats(df):
 
     def hr_min_sec(t):
         """Divides seconds into hours, minutes, and seconds."""
-    
+
         m, s = divmod(t, 60)
         h, m = divmod(m, 60)
         t = '%d hr %02d min %02d sec' % (h, m, s)
@@ -158,7 +158,7 @@ def trip_duration_stats(df):
     mean_time = df['Trip Duration'].mean()
     print('Total mean time:', hr_min_sec(mean_time))
 
-    
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -174,25 +174,25 @@ def user_stats(df):
     print('Types of users:\n', user_types)
 
     # TO DO: Display counts of gender
-    if 'Gender' in df.columns: 
+    if 'Gender' in df.columns:
         gender_types = df['Gender'].value_counts()
         print('\nGender stats:\n', gender_types)
     else:
         print('\nThere is no recorded gender data in this city. ')
 
     # TO DO: Display earliest, most recent, and most common year of birth
-    if 'Birth Year' in df.columns: 
+    if 'Birth Year' in df.columns:
         print('\nBirth year stats: ')
-        
+
         early_year = int(df['Birth Year'].min())
-        print('Earliest year of birth: ', early_year)   
-        
+        print('Earliest year of birth: ', early_year)
+
         recent_year = int(df['Birth Year'].max())
         print('Most recent year of birth: ', recent_year)
-        
+
         common_year = int(df['Birth Year'].mode()[0])
         print('Most common year of birth: ', common_year)
-        
+
     else:
         print('\nThere is no recorded birth data in this city. ')
 
@@ -211,9 +211,10 @@ def main():
         trip_duration_stats(df)
         user_stats(df)
 
+        # TO DO: Offer option of displaying raw data, in muliple of 5 lines        
         i= 5
         raw = input('\nWould you like to see 5 lines of raw data? Enter yes or no.\n').lower()
-        
+
         while True:
             if raw == 'no':
                 break
@@ -223,7 +224,7 @@ def main():
                 raw = input('\nHow about 5 more lines of raw data? Enter yes or no.\n').lower()
             else:
                 raw = input('\nI am not sure what you meant. Please type yes or no.\n').lower()
-            
+
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
             break

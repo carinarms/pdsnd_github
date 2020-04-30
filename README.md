@@ -13,4 +13,4 @@ In this project, data provided by Motivate, a bike share system provider for man
 
 Credits
 Programming for Data Science with Python Nanodegree Program
-Course Material: Command Line Essentials, Introduction to Python, Introduction to Version Control
+Course Material: Introduction to Version Control
