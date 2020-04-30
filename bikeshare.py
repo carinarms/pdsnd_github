@@ -211,7 +211,12 @@ def main():
         trip_duration_stats(df)
         user_stats(df)
 
+<<<<<<< HEAD
         # TO DO: Offer option of displaying raw data
+||||||| 6a83604
+=======
+        # TO DO: Offer option of displaying raw data, in muliple of 5 lines        
+>>>>>>> documentation
         i= 5
         raw = input('\nWould you like to see 5 lines of raw data? Enter yes or no.\n').lower()
 
